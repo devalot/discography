@@ -78,4 +78,9 @@ class UserInterface
 end
 
 ################################################################################
-UserInterface.new.run
+begin
+  UserInterface.new.run
+rescue RuntimeError => e
+  $stderr.puts(File.basename($0) + ": ERROR: #{e}")
+  exit(1)
+end
