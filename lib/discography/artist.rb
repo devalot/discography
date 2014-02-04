@@ -58,7 +58,7 @@ module Discography
       discography = YAML.load_file(file_name)
 
       discography.each do |year, titles|
-        @years[year] = titles.map {|title| Album.new(year, title)}
+        @years[year] = titles.map {|title| Discography::Album.new(year, title)}
       end
     end
   end
